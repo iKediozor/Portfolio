@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Steps will go here
+- name: Checkout repository
+  uses: actions/checkout@v2
+- name: Set up Ruby
+  uses: actions/setup-ruby@v1
+  with:
+    ruby-version: 2.x # Adjust the version as per your project's requirements
+- name: Install faraday-retry gem
+  run: gem install faraday-retry
